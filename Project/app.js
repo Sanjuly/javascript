@@ -24,3 +24,15 @@ function createButton(text, className) {
     button.className = className
     return button   
 }
+//delegation event
+taskList.addEventListener("click", (event) => {
+    if(event.target.classList.contains("delete-btn")) {
+        event.target.parentElement.remove()
+    }
+        else if(event.target.classList.contains("edit-btn")) {
+            const newTask = prompt("Edit of task", taskElement.firstChild.textContent)
+            if (newTask !== null) {
+                event.target.parentElement.firstChild.textContent = newTask
+            }
+        }
+})
