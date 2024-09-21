@@ -1,3 +1,4 @@
+//create const to change element
 const taskForm = document.getElementById("task-form")
 const taskList = document.getElementById("task-list")
 
@@ -8,19 +9,21 @@ taskForm.addEventListener("submit", (event) => {
     const taskInput = document.getElementById("task-input")
     const task = taskInput.value
     console.log(task)
-    
+//value the task
     if (task) {
         taskList.append(createTaskElement(task))
         storeTaskInLocal(task)
         taskInput.value = ""
     }
 })
+//function to create task
 function createTaskElement(task) {
     const taskElement = document.createElement("li")
     taskElement.textContent = task
     taskElement.append(createButton("❎", "delete-btn"), createButton("✏", "edit-btn"))
     return taskElement    
 }
+//function to create button
 function createButton(text, className) {
     const button = document.createElement("span")
     button.textContent = text
